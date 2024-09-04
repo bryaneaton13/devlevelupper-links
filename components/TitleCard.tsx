@@ -17,7 +17,7 @@ export default function TitleCard() {
         {/* <div className="absolute w-full h-full bg-gradient-to-b from-[#1a202c] to-[#2d3748] opacity-10" /> */}
       </div>
 
-      <Card className="flex text-center justify-center flex-col items-center w-3/4 border-none flex-none mb-4 mx-auto">
+      <Card className="flex text-center shadow-none justify-center flex-col items-center w-3/4 border-none flex-none mx-auto">
         <CardHeader>
           <CardTitle>
             <p className="pb-5 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">@{MainChannelName}</p>

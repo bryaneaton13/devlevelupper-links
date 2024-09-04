@@ -1,15 +1,13 @@
 'use client';
 
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { SocialType } from '@/lib/config';
+import { Socials, SocialType } from '@/lib/config';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
 interface SocialCardProps {
-  key: string;
   type: SocialType;
   description: string;
-  href: string;
 }
 
 const bitSounds = [
@@ -43,6 +41,15 @@ function getSrc({ type, theme }: { type: SocialType; theme: 'dark' | 'light' }) 
   }
 }
 
+function getHref({ type }: { type: SocialType }) {
+  if (type === 'twitter') return Socials.twitter;
+  if (type === 'youtube') return Socials.youtube;
+  if (type === 'tiktok') return Socials.tiktok;
+  if (type === 'instagram') return Socials.instagram;
+  if (type === 'github') return Socials.github;
+  return Socials.instagram;
+}
+
 function SocialIcon({ type }: { type: SocialType }) {
   const { theme = 'dark' } = useTheme();
   return (
@@ -50,14 +57,14 @@ function SocialIcon({ type }: { type: SocialType }) {
       <img
         className="group-hover:hidden"
         src={getSrc({ type, theme: theme === 'dark' ? 'dark' : 'light' })}
-        alt="twitter"
+        alt={type}
         width="32"
         height="32"
       />
       <img
         className="hidden group-hover:flex"
         src={getSrc({ type, theme: theme === 'dark' ? 'light' : 'dark' })}
-        alt="twitter"
+        alt={type}
         width="32"
         height="32"
       />
@@ -65,7 +72,7 @@ function SocialIcon({ type }: { type: SocialType }) {
   );
 }
 
-function SocialCard({ key, type, description, href }: SocialCardProps) {
+export default function SocialCard({ type, description }: SocialCardProps) {
   function playSound(sounds: string[]) {
     const randomIndex = Math.floor(Math.random() * sounds.length);
     const audio = new Audio(sounds[randomIndex]);
@@ -78,12 +85,8 @@ function SocialCard({ key, type, description, href }: SocialCardProps) {
   };
 
   return (
-    <Card
-      key={key + '-social-card'}
-      className="hover:bg-foreground/80 hover:text-background group hover:shadow"
-      onClick={handleClick}
-    >
-      <Link target="_blank" href={href}>
+    <Card className="hover:bg-foreground/80 hover:text-background group hover:shadow" onClick={handleClick}>
+      <Link target="_blank" href={getHref({ type })}>
         <CardHeader className="flex-row gap-5 items-center">
           <CardTitle>
             <SocialIcon type={type} />
@@ -94,5 +97,3 @@ function SocialCard({ key, type, description, href }: SocialCardProps) {
     </Card>
   );
 }
-
-export default SocialCard;

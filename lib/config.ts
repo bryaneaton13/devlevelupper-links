@@ -1,35 +1,17 @@
 export const MainChannelName = 'devlevelupper';
 
-export type SocialType = 'twitter' | 'youtube' | 'tiktok' | 'instagram' | 'github';
+export const Socials = {
+  twitter: 'https://twitter.com/devlevelupper',
+  youtube: 'https://www.youtube.com/@DevLevelUpper',
+  tiktok: 'https://www.tiktok.com/@devlevelupper',
+  instagram: 'https://www.instagram.com/devlevelupper',
+  github: 'https://www.github.com/bryaneaton13/devlevelupper-links',
+} as const;
 
-export const socials: {
-  type: SocialType;
-  href: string;
-  description: string;
-}[] = [
-  {
-    type: 'instagram',
-    href: 'https://www.instagram.com/devlevelupper',
-    description: 'Instagram',
-  },
-  {
-    type: 'youtube',
-    href: 'https://www.youtube.com/@DevLevelUpper',
-    description: 'Shorts for now, maybe longer videos soon',
-  },
-  {
-    type: 'tiktok',
-    href: 'https://www.tiktok.com/@devlevelupper',
-    description: 'TikTok',
-  },
-  {
-    type: 'twitter',
-    href: 'https://twitter.com/devlevelupper',
-    description: 'Check out the latest highlights.',
-  },
-  // {
-  //   type: 'github',
-  //   href: 'https://github.com/bryaneaton13',
-  //   description: 'GitHub',
-  // },
-];
+export type SocialType = keyof typeof Socials;
+
+export const Affiliates = {
+  nuphy: 'https://nuphy.com?sca_ref=6910595.FHI02nrbfY',
+  // screenStudio: 'https://screen.studio?ref=devlevelupper',
+} as const;
+export type AffiliateType = keyof typeof Affiliates;

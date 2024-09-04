@@ -1,18 +1,29 @@
 import TitleCard from '@/components/TitleCard';
 import SocialCard from '@/components/SocialCard';
-import { socials } from '@/lib/config';
 import Footer from '@/components/Footer';
+import AffiliateCard from '@/components/AffiliateCard';
 
 export default function Home() {
   return (
     <>
       <div className="flex flex-col min-h-screen pt-0">
         <TitleCard />
-        <div className="flex flex-col w-full justify-center gap-5 p-6 md:p-12">
-          {socials.map((social) => (
-            <SocialCard key={social.type} type={social.type} description={social.description} href={social.href} />
-          ))}
+        <hr className="my-4" />
+        <div className="flex flex-col w-full justify-center gap-5 py-4 px-6 md:px-12">
+          <SocialCard type="twitter" description="Follow me on X / Twitter" />
+          <SocialCard type="youtube" description="Subscribe to my YouTube" />
+          <SocialCard type="tiktok" description="Follow me on TikTok" />
+          <SocialCard type="instagram" description="Follow me on Instagram" />
+          <SocialCard type="github" description="Check out my GitHub" />
         </div>
+        <hr className="my-4" />
+
+        <h2 className="text-center text-2xl font-semibold">Affiliate Links</h2>
+        <div className="flex flex-col w-full justify-center gap-5 py-4 px-6 md:px-12">
+          <AffiliateCard type="nuphy" description="10% off anything at NuPhy" />
+        </div>
+        <hr />
+
         <Footer />
       </div>
     </>

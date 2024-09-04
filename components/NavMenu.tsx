@@ -9,8 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { MainChannelName, socials } from '@/lib/config';
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import { MainChannelName, Socials } from '@/lib/config';
 import { ModeToggle } from './ModeToggle';
 
 export function NavMenu() {
@@ -18,7 +17,7 @@ export function NavMenu() {
     <NavigationMenu className="flex items-start fixed top-0">
       <NavigationMenuList className="w-screen h-auto flex-row items-start justify-start p-2 pr-5">
         <NavigationMenuItem className="">
-          <NavigationMenuTrigger>{MainChannelName}</NavigationMenuTrigger>
+          <NavigationMenuTrigger>@{MainChannelName}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -39,9 +38,11 @@ export function NavMenu() {
           <NavigationMenuTrigger>socials</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {socials.map((component) => (
-                <ListItem key={component.type} type={component.type} href={component.href} target="_blank" />
-              ))}
+              <ListItem type="twitter" href={Socials.twitter} target="_blank" />
+              <ListItem type="youtube" href={Socials.youtube} target="_blank" />
+              <ListItem type="tiktok" href={Socials.tiktok} target="_blank" />
+              <ListItem type="instagram" href={Socials.instagram} target="_blank" />
+              <ListItem type="github" href={Socials.github} target="_blank" />
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -54,22 +55,18 @@ export function NavMenu() {
   );
 }
 
-const ListItem = forwardRef<ElementRef<'a'>, ComponentPropsWithoutRef<'a'>>(({ className, type, ...props }, ref) => {
+function ListItem({ type, href, target }: { type: string; href: string; target: string }) {
   return (
     <li>
       <NavigationMenuLink
-        href={props.href}
-        target={props.target}
+        href={href}
+        target={target}
         className={cn(
           'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-          className,
         )}
       >
         <div className="text-sm font-medium leading-none">{type}</div>
       </NavigationMenuLink>
     </li>
   );
-});
-
-ListItem.displayName = 'ListItem';
-export { socials };
+}
