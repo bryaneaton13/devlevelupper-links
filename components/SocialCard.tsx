@@ -44,7 +44,7 @@ function getSrc({ type, theme }: { type: SocialType; theme: 'dark' | 'light' }) 
 }
 
 function SocialIcon({ type }: { type: SocialType }) {
-  const { theme } = useTheme();
+  const { theme = 'dark' } = useTheme();
   return (
     <>
       <img

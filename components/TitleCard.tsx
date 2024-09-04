@@ -5,9 +5,9 @@ import { MainChannelName } from '@/lib/config';
 export default function TitleCard() {
   return (
     <>
-      <div className="mt-16 relative w-full h-[175px] md:h-[200px] bg-gradient-to-b from-[#1a202c] to-[#2d3748]">
+      <div className="mt-16 relative w-full h-[175px] md:h-[200px] 2xl:h-[300px] bg-gradient-to-b from-[#1a202c] to-[#2d3748]">
         <div
-          className="max-md:hidden absolute left-0 right-0 w-full h-[200px] bg-cover bg-center"
+          className="max-md:hidden absolute left-0 right-0 w-full h-[200px] 2xl:h-[300px] bg-cover bg-center"
           style={{ backgroundImage: 'url(/assets/devlevelupper_banner.png)' }}
         />
         <div
