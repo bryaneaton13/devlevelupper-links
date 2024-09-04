@@ -24,7 +24,7 @@ export const socials: {
   },
   {
     type: 'twitter',
-    href: 'https://twitter.com/dev_highlights',
+    href: 'https://twitter.com/devlevelupper',
     description: 'Check out the latest highlights.',
   },
   // {
