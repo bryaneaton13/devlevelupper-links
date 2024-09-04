@@ -12,7 +12,6 @@ import {
 import { MainChannelName, socials } from '@/lib/config';
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import { ModeToggle } from './ModeToggle';
-import Link from 'next/link';
 
 export function NavMenu() {
   return (
@@ -27,7 +26,7 @@ export function NavMenu() {
                   href="/"
                   className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                 >
-                  <div className="mb-2 mt-4 text-lg font-medium">Dev Highlights!</div>
+                  <div className="mb-2 mt-4 text-lg font-medium">DevLevelUpper!</div>
                   <div className="text-sm leading-tight text-muted-foreground">
                     Check out the latest posts from {MainChannelName}
                   </div>
@@ -41,9 +40,7 @@ export function NavMenu() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {socials.map((component) => (
-                <ListItem key={component.title} title={component.title} href={component.href} target="_blank">
-                  {component.description}
-                </ListItem>
+                <ListItem key={component.type} type={component.type} href={component.href} target="_blank" />
               ))}
             </ul>
           </NavigationMenuContent>
@@ -57,25 +54,22 @@ export function NavMenu() {
   );
 }
 
-const ListItem = forwardRef<ElementRef<'a'>, ComponentPropsWithoutRef<'a'>>(
-  ({ className, title, children, ...props }, ref) => {
-    return (
-      <li>
-        <NavigationMenuLink
-          href={props.href}
-          target={props.target}
-          className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className,
-          )}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</div>
-        </NavigationMenuLink>
-      </li>
-    );
-  },
-);
+const ListItem = forwardRef<ElementRef<'a'>, ComponentPropsWithoutRef<'a'>>(({ className, type, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink
+        href={props.href}
+        target={props.target}
+        className={cn(
+          'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+          className,
+        )}
+      >
+        <div className="text-sm font-medium leading-none">{type}</div>
+      </NavigationMenuLink>
+    </li>
+  );
+});
 
 ListItem.displayName = 'ListItem';
 export { socials };

@@ -1,29 +1,35 @@
-export const MainChannelName = 'dev_highlights';
+export const MainChannelName = 'devlevelupper';
 
-export const socials: { title: string; href: string; description: string }[] = [
+export type SocialType = 'twitter' | 'youtube' | 'tiktok' | 'instagram' | 'github';
+
+export const socials: {
+  type: SocialType;
+  href: string;
+  description: string;
+}[] = [
   {
-    title: 'Twitter',
-    href: 'https://twitter.com/dev_highlights',
-    description: 'Check out the latest highlights.',
-  },
-  {
-    title: 'Youtube',
-    href: 'https://www.youtube.com/@dev_highlights',
-    description: 'Shorts for now, maybe longer videos soon',
-  },
-  {
-    title: 'TikTok',
-    href: 'https://www.tiktok.com/@dev_highlights',
-    description: 'TikTok',
-  },
-  {
-    title: 'Instagram',
-    href: 'https://www.instagram.com/dev_highlights',
+    type: 'instagram',
+    href: 'https://www.instagram.com/devlevelupper',
     description: 'Instagram',
   },
   {
-    title: 'Github',
-    href: 'https://github.com/bryaneaton13',
-    description: 'GitHub',
+    type: 'youtube',
+    href: 'https://www.youtube.com/@DevLevelUpper',
+    description: 'Shorts for now, maybe longer videos soon',
   },
+  {
+    type: 'tiktok',
+    href: 'https://www.tiktok.com/@devlevelupper',
+    description: 'TikTok',
+  },
+  {
+    type: 'twitter',
+    href: 'https://twitter.com/dev_highlights',
+    description: 'Check out the latest highlights.',
+  },
+  // {
+  //   type: 'github',
+  //   href: 'https://github.com/bryaneaton13',
+  //   description: 'GitHub',
+  // },
 ];

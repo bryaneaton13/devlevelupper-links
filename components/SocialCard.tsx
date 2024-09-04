@@ -1,12 +1,13 @@
 'use client';
 
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { SocialType } from '@/lib/config';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { SocialIcon } from 'react-social-icons';
 
 interface SocialCardProps {
   key: string;
-  title: string;
+  type: SocialType;
   description: string;
   href: string;
 }
@@ -21,7 +22,50 @@ const bitSounds = [
   '/sounds/negative_beeps-6008.mp3',
 ];
 
-const SocialCard: React.FC<SocialCardProps> = ({ key, title, description, href }) => {
+function getSrc({ type, theme }: { type: SocialType; theme: 'dark' | 'light' }) {
+  if (type === 'twitter') {
+    if (theme === 'dark') return '/assets/twitter_dark.svg';
+    return '/assets/twitter_light.svg';
+  }
+  if (type === 'youtube') {
+    return '/assets/youtube.svg';
+  }
+  if (type === 'tiktok') {
+    return '/assets/tiktok.svg';
+  }
+  if (type === 'instagram') {
+    if (theme === 'dark') return '/assets/instagram_dark.svg';
+    return '/assets/instagram_light.svg';
+  }
+  if (type === 'github') {
+    if (theme === 'dark') return '/assets/github_dark.svg';
+    return '/assets/github_light.svg';
+  }
+}
+
+function SocialIcon({ type }: { type: SocialType }) {
+  const { theme } = useTheme();
+  return (
+    <>
+      <img
+        className="group-hover:hidden"
+        src={getSrc({ type, theme: theme === 'dark' ? 'dark' : 'light' })}
+        alt="twitter"
+        width="32"
+        height="32"
+      />
+      <img
+        className="hidden group-hover:flex"
+        src={getSrc({ type, theme: theme === 'dark' ? 'light' : 'dark' })}
+        alt="twitter"
+        width="32"
+        height="32"
+      />
+    </>
+  );
+}
+
+function SocialCard({ key, type, description, href }: SocialCardProps) {
   function playSound(sounds: string[]) {
     const randomIndex = Math.floor(Math.random() * sounds.length);
     const audio = new Audio(sounds[randomIndex]);
@@ -34,17 +78,21 @@ const SocialCard: React.FC<SocialCardProps> = ({ key, title, description, href }
   };
 
   return (
-    <Card key={key + '-social-card'} className="hover:bg-slate-950" onClick={handleClick}>
+    <Card
+      key={key + '-social-card'}
+      className="hover:bg-foreground/80 hover:text-background group hover:shadow"
+      onClick={handleClick}
+    >
       <Link target="_blank" href={href}>
         <CardHeader className="flex-row gap-5 items-center">
           <CardTitle>
-            <SocialIcon network={title} href={href} target="_blank" />
+            <SocialIcon type={type} />
           </CardTitle>
-          <CardDescription className="text-xl font-extrabold">{description}</CardDescription>
+          <CardTitle className="text-xl font-extrabold">{description}</CardTitle>
         </CardHeader>
       </Link>
     </Card>
   );
-};
+}
 
 export default SocialCard;
