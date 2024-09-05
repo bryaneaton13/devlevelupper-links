@@ -6,6 +6,7 @@ import { Toaster } from 'sonner';
 import { NavMenu } from '@/components/NavMenu';
 import { GeistMono } from 'geist/font/mono';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 
 const silk = Silkscreen({ weight: '400', subsets: ['latin'] });
 
@@ -25,10 +26,11 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <NavMenu />
 
-          <main>{children}</main>
+          <main className="bg-slate-100 dark:bg-slate-700">{children}</main>
 
           <Toaster theme="dark" position="top-center" richColors />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

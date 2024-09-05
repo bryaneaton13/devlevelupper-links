@@ -12,6 +12,6 @@ export type SocialType = keyof typeof Socials;
 
 export const Affiliates = {
   nuphy: 'https://nuphy.com?sca_ref=6910595.FHI02nrbfY',
-  // screenStudio: 'https://screen.studio?ref=devlevelupper',
+  screenStudio: 'https://screen.studio/@rv4Xg',
 } as const;
 export type AffiliateType = keyof typeof Affiliates;

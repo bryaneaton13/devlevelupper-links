@@ -52,10 +52,12 @@ function getHref({ type }: { type: SocialType }) {
 
 function SocialIcon({ type }: { type: SocialType }) {
   const { theme = 'dark' } = useTheme();
+
   return (
     <>
       <img
         className="group-hover:hidden"
+        key="hover-image"
         src={getSrc({ type, theme: theme === 'dark' ? 'dark' : 'light' })}
         alt={type}
         width="32"
@@ -63,7 +65,8 @@ function SocialIcon({ type }: { type: SocialType }) {
       />
       <img
         className="hidden group-hover:flex"
-        src={getSrc({ type, theme: theme === 'dark' ? 'light' : 'dark' })}
+        key="base-image"
+        src={getSrc({ type, theme: theme === 'dark' ? 'dark' : 'light' })}
         alt={type}
         width="32"
         height="32"
