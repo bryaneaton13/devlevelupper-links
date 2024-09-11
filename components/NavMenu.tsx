@@ -38,7 +38,7 @@ export function NavMenu() {
           <NavigationMenuTrigger>socials</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              <ListItem type="twitter" href={Socials.twitter} target="_blank" />
+              {/* <ListItem type="twitter" href={Socials.twitter} target="_blank" /> */}
               <ListItem type="youtube" href={Socials.youtube} target="_blank" />
               <ListItem type="tiktok" href={Socials.tiktok} target="_blank" />
               <ListItem type="instagram" href={Socials.instagram} target="_blank" />

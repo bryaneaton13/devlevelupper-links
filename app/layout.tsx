@@ -13,6 +13,7 @@ const silk = Silkscreen({ weight: '400', subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'DevLevelUpper',
   description: 'Helping developers level up with the tools they use.',
+  metadataBase: new URL('https://www.devlevelupper.com'),
 };
 
 export default function RootLayout({

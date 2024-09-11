@@ -14,7 +14,7 @@ function getHref({ type }: { type: AffiliateType }) {
 
 export default function AffiliateCard({ type, description }: { type: AffiliateType; description: string }) {
   return (
-    <Card className="group hover:shadow relative  w-full h-[200px] aspect-square">
+    <Card className="group hover:shadow relative w-full h-[200px] aspect-square transition-all">
       <Link target="_blank" href={getHref({ type })}>
         <div className="">
           <div className="absolute inset-0 overflow-hidden">
