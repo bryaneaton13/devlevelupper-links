@@ -88,7 +88,10 @@ export default function SocialCard({ type, description }: SocialCardProps) {
   };
 
   return (
-    <Card className="hover:bg-foreground/80 hover:text-background group hover:shadow" onClick={handleClick}>
+    <Card
+      className="hover:bg-foreground/80 hover:text-background group hover:shadow-xl hover:scale-[1.02]  transition-all"
+      onClick={handleClick}
+    >
       <Link target="_blank" href={getHref({ type })}>
         <CardHeader className="flex-row gap-5 items-center">
           <CardTitle>
