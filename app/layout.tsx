@@ -7,6 +7,7 @@ import { NavMenu } from '@/components/NavMenu';
 import { GeistMono } from 'geist/font/mono';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
+import PlausibleProvider from 'next-plausible';
 
 const silk = Silkscreen({ weight: '400', subsets: ['latin'] });
 
@@ -24,13 +25,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(silk.className, GeistMono.className)}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <NavMenu />
+        <PlausibleProvider selfHosted customDomain="https://plausible.bryaneaton.com" domain="devlevelupper.com">
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+            <NavMenu />
 
-          <main className="bg-slate-100 dark:bg-slate-700">{children}</main>
+            <main className="bg-slate-100 dark:bg-slate-700">{children}</main>
 
-          <Toaster theme="dark" position="top-center" richColors />
-        </ThemeProvider>
+            <Toaster theme="dark" position="top-center" richColors />
+          </ThemeProvider>
+        </PlausibleProvider>
         <Analytics />
       </body>
     </html>

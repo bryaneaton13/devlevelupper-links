@@ -93,7 +93,7 @@ export default function SocialCard({ type, description }: SocialCardProps) {
       onClick={handleClick}
     >
       <Link target="_blank" href={getHref({ type })}>
-        <CardHeader className="flex-row gap-5 items-center">
+        <CardHeader className="flex-row gap-3 md:gap-5 items-center">
           <CardTitle>
             <SocialIcon type={type} />
           </CardTitle>

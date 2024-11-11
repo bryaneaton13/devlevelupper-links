@@ -11,19 +11,12 @@ export default function Home() {
         <hr className="my-4" />
 
         <h2 className="text-center text-2xl font-semibold">Socials</h2>
-        <div className="flex flex-col w-full justify-center gap-5 py-4 px-6 md:px-12">
+        <div className="grid grid-cols-2 w-full justify-center gap-2 md:gap-5 py-4 px-3 md:px-12">
           {/* <SocialCard type="twitter" description="Follow me on X / Twitter" /> */}
           <SocialCard type="youtube" description="YouTube" />
           <SocialCard type="tiktok" description="TikTok" />
           <SocialCard type="instagram" description="Instagram" />
           <SocialCard type="github" description="GitHub" />
-        </div>
-        <hr className="my-4" />
-
-        <h2 className="text-center text-2xl font-semibold">Support Me</h2>
-        <div className="flex flex-col w-full justify-center gap-5 py-4 px-6 md:px-12">
-          <AffiliateCard type="nuphy" description="NuPhy - mechanical keyboards and more" />
-          <AffiliateCard type="screenStudio" description="Screen Studio - the best screen recorder" />
         </div>
         <hr className="my-4" />
 
@@ -41,6 +34,13 @@ export default function Home() {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
+        </div>
+        <hr className="my-4" />
+
+        <h2 className="text-center text-2xl font-semibold">Support Me</h2>
+        <div className="flex flex-col w-full justify-center gap-5 py-4 px-6 md:px-12">
+          <AffiliateCard type="nuphy" description="NuPhy - mechanical keyboards and more" />
+          <AffiliateCard type="screenStudio" description="Screen Studio - the best screen recorder" />
         </div>
 
         <Footer />

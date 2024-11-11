@@ -6,13 +6,13 @@ export default function TitleCard() {
     <>
       <div className="mt-16 relative w-full h-[175px] md:h-[200px] 2xl:h-[300px] bg-gradient-to-b from-[#1a202c] to-[#2d3748]">
         <div
-          className="max-md:hidden absolute left-0 right-0 w-full h-[200px] 2xl:h-[300px] bg-cover bg-center"
-          style={{ backgroundImage: 'url(/assets/devlevelupper_banner.png)' }}
+          className="absolute left-0 right-0 w-full h-[175px] md:h-[200px] 2xl:h-[300px] bg-cover bg-center"
+          style={{ backgroundImage: 'url(/assets/devlevelupper_banner_2.png)' }}
         />
-        <div
+        {/* <div
           className="md:hidden absolute left-0 right-0 w-full h-[175px] bg-cover bg-center"
           style={{ backgroundImage: 'url(/assets/devlevelupper_logo.png)' }}
-        />
+        /> */}
       </div>
 
       <Card className="flex text-center shadow-none justify-center flex-col items-center w-3/4 border-none flex-none mx-auto mt-4">
