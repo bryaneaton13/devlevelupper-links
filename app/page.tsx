@@ -3,7 +3,7 @@ import SocialCard from '@/components/SocialCard';
 import Footer from '@/components/Footer';
 import AffiliateCard from '@/components/AffiliateCard';
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <div className="flex flex-col min-h-screen pt-0">
